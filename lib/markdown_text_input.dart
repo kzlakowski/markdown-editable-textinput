@@ -28,6 +28,9 @@ class MarkdownTextInput extends StatefulWidget {
   /// Is the widget enabled
   final bool? enabled;
 
+  /// Border around the widget
+  final Border? border;
+
   /// Constructor for [MarkdownTextInput]
   MarkdownTextInput(
     this.onTextChanged,
@@ -44,6 +47,7 @@ class MarkdownTextInput extends StatefulWidget {
       MarkdownType.list
     ],
     this.enabled,
+    this.border,
   });
 
   @override
@@ -97,7 +101,8 @@ class _MarkdownTextInputState extends State<MarkdownTextInput> {
     return Container(
       decoration: BoxDecoration(
         color: Theme.of(context).cardColor,
-        border: Border.all(color: Theme.of(context).accentColor, width: 2),
+        border: widget.border ??
+            Border.all(color: Theme.of(context).accentColor, width: 2),
         borderRadius: const BorderRadius.all(Radius.circular(10)),
       ),
       child: Column(
